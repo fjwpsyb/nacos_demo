@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: consumer
+
+  cloud:
+    nacos:
+######################服务注册发现配置##################################
+      discovery:
+        server-addr: http://127.0.0.1:8848
+        namespace: producer

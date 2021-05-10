@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: producer
+
+
+
+  cloud:
+    nacos:
+#######################配置中心配置#################################
+      config:
+        server-addr: http://127.0.0.1:8848
+        username: nacos
+        password: nacos
+        file-extension: yaml #指定yaml格式的配置，注意：这里不能写成yml
+        group: DEFAULT_GROUP
+        namespace: producer
+        refresh-enabled: true
+
+######################服务注册发现配置##################################
+      discovery:
+        server-addr: ${spring.cloud.nacos.config.server-addr}
+        namespace: ${spring.cloud.nacos.config.namespace}
